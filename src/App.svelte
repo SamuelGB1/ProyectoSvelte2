@@ -1,12 +1,37 @@
 <script>
-	export let name;
+	 let rol = {
+        rol_name: ""
+    }
+
+    let listado_roles = [];
+
+
+    const guardarroles = () =>{
+        rol=listado_roles.push(rol);
+        console.log(rol);
+        console.log(listado_roles);
+        resetform();
+        
+    }
+
+    const resetform = () =>{
+        rol = {
+            rol_name: ""
+        }
+    }
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<form on:submit|preventDefault={guardarroles}>
+        <label for="namerol">Nombre del Rol: </label>
+        <input
+            bind:value={rol.rol_name}
+            type="text"
+            id="rol"
+            placeholder="Inserte el nombre del rol"
+        >
+        <button>
+            Guardar
+        </button>
+    </form>
 </main>
-
-<style>
-	
-</style>
