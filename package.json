@@ -24,6 +24,7 @@
     "autoprefixer": "^9",
     "concurrently": "^6.3.0",
     "cross-env": "^7.0.3",
+    "firebase": "^9.4.1",
     "postcss-cli": "^7",
     "sirv-cli": "^1.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
