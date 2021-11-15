@@ -43,16 +43,17 @@ from "firebase/firestore";
             phone: "",
             email: "",
 			rol: ""
-	    }
+	    };
+		editar = false;
     }
 
 	const cgDatosus = async() =>{
 		const querySnapshot = await getDocs(collection(db, "user"));
-		let user = [];
+		let listado_usuarios = [];
 		querySnapshot.forEach((doc) => {
-			docs.push({...doc.data(), id: doc.id});
+			listado_usuarios.push({...doc.data(), id: doc.id});
 		});
-		listado_usuarios = [...docs];
+		listado_usuarios = [...listado_usuarios];
 		console.log(listado_usuarios);
 	};
 	cgDatosus();
@@ -69,7 +70,7 @@ from "firebase/firestore";
 	}
 
 	const editUser = (u) => {
-		user = Object.assign({}, d.user);
+		user = Object.assign({}, u.user);
 		editar = true;
 	}
 
@@ -93,16 +94,17 @@ from "firebase/firestore";
 	const resetform = () =>{
         rol = {
             rol_name: ""
-        }
+        };
+		editar = false;
     }
 
 	const cgDatoR = async() =>{
 		const querySnapshot = await getDocs(collection(db, "rol"));
-		let rol = [];
-		querySnapshot.forEach((doc) => {
-			docs.push({...doc.data(), id: doc.id});
+		 r_ol = [];
+		querySnapshot.forEach((r_ol) => {
+			listado_roles.push({...doc.data(), id: doc.id});
 	});
-	listado_roles = [...docs];
+	listado_roles = [...listado_roles];
 	console.log(listado_roles);
 };
 cgDatoR();
@@ -169,6 +171,7 @@ cgDatoR();
 									</svg>
 								</button>
 				</div>
+				{/each}			
 			</div>
 		</div>
 		<div class="p-4 shadow-md rounded-md text-lef">
